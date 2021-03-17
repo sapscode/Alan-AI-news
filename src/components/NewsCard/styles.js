@@ -1,3 +1,4 @@
+import { grey } from '@material-ui/core/colors';
 import {makeStyles} from '@material-ui/core/styles';
 
 export default makeStyles ({
@@ -18,6 +19,7 @@ export default makeStyles ({
     },
     activeCard: {
         borderBottom: '10px solid #22289a',
+        backgroundColor: grey
     },
     grid: {
         display: 'flex',
