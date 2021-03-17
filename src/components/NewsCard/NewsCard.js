@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 
 import useStyles from './styles'
 
 const NewsCard = ({ article:{ description, publishedAt, source, title, url, urlToImage }, i, activeArticle }) => {
-
     const classes = useStyles();
+    const [elRefs, setElRefs] = useState([]);
+    const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50);
+
+    useEffect(() => {
+        window.scroll(0, 0);
+        setElRefs((refs) => Array(20).fill().map((_,j) => refs[j] || createRef()));
+    }, []);
+
+    useEffect(() => {
+        if(i === activeArticle && elRefs[activeArticle]){
+            scrollToRef(elRefs[activeArticle]);
+        }
+    }, [i, activeArticle, elRefs]);
 
     return (
         <Card className={ activeArticle === i ? classes.activeCard : classes.card}> {/* if the article is active then highlight it (classes.activeCard) or show normal card (classes.card) */}
