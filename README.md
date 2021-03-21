@@ -1,3 +1,9 @@
+The site is hosted at - https://saps-alan-ai-news.netlify.app/
+
+To look at the Alan AI code open the News_App.js file
+
+Alan AI documentaion - https://alan.app/docs/usage/getting-started
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
