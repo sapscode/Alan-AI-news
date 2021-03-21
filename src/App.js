@@ -9,7 +9,7 @@ const alanKey = process.env.REACT_APP_API_KEY;
 
 const App = () => {
     const [newsArticles, setnewsArticles] = useState([]);
-    const [activeArticle, setActiveArticle] = useState(-1);
+    const [activeArticle, setActiveArticle] = useState(-1); //since 1st article is 0, 
 
     const classes = useStyles();
 
@@ -25,14 +25,14 @@ const App = () => {
                     setActiveArticle((prevActiveArticle) => (prevActiveArticle + 1));
                 }
                 else if(command === 'open'){
-                    const parsedNumber = number.length > 2 ? wordsToNumbers((number), {fuzzy: true}) : number;
-                    const article = articles[parsedNumber - 1];
+                    const parsedNumber = number.length > 2 ? wordsToNumbers((number), {fuzzy: true}) : number; //wordsToNumbers = converts word to closest number
+                    const article = articles[parsedNumber - 1]; //since article numbers starting from 0
 
                     if(parsedNumber > articles.length){
                         alanBtn().playText('Please try again ...');
                     }
                     else if(article){
-                        window.open(article.url, '_blank');
+                        window.open(article.url, '_blank'); //_blank = opening on a new tab
                         alanBtn().playText('Opening in a new tab ...');
                     }
                     else {

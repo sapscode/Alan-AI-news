@@ -6,6 +6,7 @@ import useStyles from './styles'
 const NewsCard = ({ article:{ description, publishedAt, source, title, url, urlToImage }, i, activeArticle }) => {
     const classes = useStyles();
     const [elRefs, setElRefs] = useState([]);
+    
     const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop);
 
     useEffect(() => {
